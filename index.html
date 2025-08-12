@@ -19,6 +19,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            /* 부드러운 스크롤 효과 추가 */
+            scroll-behavior: smooth; 
         }
 
         body {
@@ -38,6 +40,10 @@
             background: var(--light-color);
             padding: 1rem 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            /* 상단 고정 메뉴를 위한 추가 */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         header .container {
@@ -169,26 +175,26 @@
 
     <header>
         <div class="container">
-            <a href="#" class="logo">FITSTEP</a>
+            <a href="#home" class="logo">FITSTEP</a>
             <nav>
-                <a href="#">제품 소개</a>
-                <a href="#">맞춤 제작</a>
-                <a href="#">고객 후기</a>
-                <a href="#">문의하기</a>
+                <a href="#features">제품 소개</a>
+                <a href="#customize">맞춤 제작</a>
+                <a href="#reviews">고객 후기</a>
+                <a href="#contact">문의하기</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero" id="home">
             <div class="container">
                 <h1>발걸음의 혁신, FITSTEP이 시작합니다.</h1>
                 <p>당신의 발 모양에 완벽하게 맞춰진 인솔로 편안함과 안정감을 경험하세요. 🚶‍♂️</p>
-                <a href="#" class="cta-button">나만의 인솔 만들기</a>
+                <a href="#customize" class="cta-button">나만의 인솔 만들기</a>
             </div>
         </section>
 
-        <section class="features">
+        <section class="features" id="features">
             <div class="container">
                 <h2>FITSTEP의 특별함</h2>
                 <div class="feature-grid">
@@ -206,6 +212,25 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section class="features" id="customize">
+            <div class="container">
+                <h2>나만의 맞춤 인솔 제작하기</h2>
+                <p>간단한 세 단계로 당신에게 꼭 맞는 인솔을 제작해 보세요.</p>
+                </div>
+        </section>
+        
+        <section class="features" id="reviews">
+            <div class="container">
+                <h2>고객 후기</h2>
+                </div>
+        </section>
+
+        <section class="features" id="contact">
+            <div class="container">
+                <h2>문의하기</h2>
+                </div>
         </section>
     </main>
 
