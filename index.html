@@ -13,13 +13,16 @@
             --dark-color: #212529;
             --light-color: #ffffff;
             --font-family: 'Noto Sans KR', sans-serif;
+            --color-1: #f8f9fa;
+            --color-2: #e9ecef;
+            --color-3: #dee2e6;
+            --color-4: #ced4da;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* 부드러운 스크롤 효과 추가 */
             scroll-behavior: smooth; 
         }
 
@@ -40,7 +43,6 @@
             background: var(--light-color);
             padding: 1rem 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            /* 상단 고정 메뉴를 위한 추가 */
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -71,30 +73,37 @@
             color: var(--primary-color);
         }
         
+        /* 섹션 공통 스타일 */
+        section {
+            padding: 6rem 0;
+            text-align: center;
+        }
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        section p.lead {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+        
+        /* Hero 섹션 */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1558223631-c06836916a04?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920&h=1080');
             background-size: cover;
             background-position: center;
             color: var(--light-color);
-            text-align: center;
             padding: 10rem 0;
         }
-
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
         }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: auto;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .cta-button {
+        .hero .cta-button {
             background-color: var(--primary-color);
             color: var(--light-color);
             padding: 12px 30px;
@@ -103,28 +112,19 @@
             font-weight: 700;
             transition: background-color 0.3s ease;
         }
-
-        .cta-button:hover {
+        .hero .cta-button:hover {
             background-color: #0056b3;
         }
 
+        /* Features 섹션 */
         .features {
-            padding: 4rem 0;
-            text-align: center;
+            background-color: var(--color-1);
         }
-
-        .features h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            font-weight: 700;
-        }
-
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
-
         .feature-card {
             background: var(--light-color);
             padding: 30px;
@@ -132,20 +132,77 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-align: center;
         }
-
-        .feature-card i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
         }
-
         .feature-card p {
             font-weight: 300;
+        }
+
+        /* Customize 섹션 */
+        .customize {
+            background-color: var(--color-2);
+        }
+        .step-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 3rem;
+        }
+        .step-card {
+            width: 250px;
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .step-card h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .step-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .step-card p {
+            font-weight: 300;
+        }
+
+        /* Reviews 섹션 */
+        .reviews {
+            background-color: var(--color-3);
+        }
+        .review-card {
+            background: var(--light-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .review-card p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .review-card .author {
+            font-weight: 700;
+            text-align: right;
+            color: var(--primary-color);
+        }
+
+        /* Contact 섹션 */
+        .contact {
+            background-color: var(--color-4);
+        }
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 400;
         }
 
         footer {
@@ -153,12 +210,6 @@
             color: var(--light-color);
             text-align: center;
             padding: 2rem 0;
-            margin-top: 4rem;
-        }
-
-        footer p {
-            margin: 0;
-            font-weight: 300;
         }
 
         @media (max-width: 768px) {
@@ -197,40 +248,75 @@
         <section class="features" id="features">
             <div class="container">
                 <h2>FITSTEP의 특별함</h2>
+                <p class="lead">3D 스캔부터 전문가 상담까지, 당신의 발을 위한 최상의 솔루션을 제공합니다.</p>
                 <div class="feature-grid">
                     <div class="feature-card">
                         <h3>1:1 맞춤형 디자인</h3>
-                        <p>3D 스캔 기술로 당신의 발에 꼭 맞는 인솔을 제작합니다.</p>
+                        <p>정밀한 3D 스캐닝 기술로 당신의 발 모양을 완벽하게 분석하여 제작합니다.</p>
                     </div>
                     <div class="feature-card">
                         <h3>최고급 소재 사용</h3>
-                        <p>충격 흡수와 통기성이 뛰어난 프리미엄 소재만을 고집합니다.</p>
+                        <p>가볍고 통기성이 뛰어나며, 충격 흡수력이 탁월한 프리미엄 소재만을 고집합니다.</p>
                     </div>
                     <div class="feature-card">
                         <h3>전문가 상담</h3>
-                        <p>족부 전문가와 상담하여 가장 적합한 솔루션을 제안해 드립니다.</p>
+                        <p>족부 전문가가 직접 당신의 발 상태를 진단하고 가장 적합한 인솔을 추천해 드립니다.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="features" id="customize">
+        <section class="customize" id="customize">
             <div class="container">
                 <h2>나만의 맞춤 인솔 제작하기</h2>
-                <p>간단한 세 단계로 당신에게 꼭 맞는 인솔을 제작해 보세요.</p>
+                <p class="lead">간단한 3단계만 거치면, 당신의 발에 꼭 맞는 인솔이 완성됩니다.</p>
+                <div class="step-grid">
+                    <div class="step-card">
+                        <h3>STEP 1</h3>
+                        <h4>3D 스캔 및 분석</h4>
+                        <p>전문 장비로 발의 형태와 압력 분포를 정밀하게 스캔합니다.</p>
+                    </div>
+                    <div class="step-card">
+                        <h3>STEP 2</h3>
+                        <h4>전문가 상담</h4>
+                        <p>스캔 데이터를 바탕으로 족부 전문가와 1:1 맞춤 상담을 진행합니다.</p>
+                    </div>
+                    <div class="step-card">
+                        <h3>STEP 3</h3>
+                        <h4>인솔 제작 및 배송</h4>
+                        <p>개인별 맞춤 디자인으로 제작된 인솔을 안전하게 배송해 드립니다.</p>
+                    </div>
                 </div>
+            </div>
         </section>
         
-        <section class="features" id="reviews">
+        <section class="reviews" id="reviews">
             <div class="container">
                 <h2>고객 후기</h2>
+                <p class="lead">FITSTEP 인솔로 삶의 질이 달라진 고객님들의 생생한 후기입니다.</p>
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <div class="review-card">
+                        <p>"오래 서서 일하는 직업이라 늘 발이 아팠는데, FITSTEP 인솔 덕분에 하루가 편안해졌어요. 정말 감사합니다!"</p>
+                        <div class="author">— 김민지 (카페 사장)</div>
+                    </div>
+                    <div class="review-card">
+                        <p>"등산이 취미인데 무릎 통증 때문에 힘들었습니다. FITSTEP 맞춤 인솔을 사용하고 나서부터는 통증 없이 즐겁게 산에 오르고 있어요."</p>
+                        <div class="author">— 박서준 (직장인)</div>
+                    </div>
                 </div>
+            </div>
         </section>
 
-        <section class="features" id="contact">
+        <section class="contact" id="contact">
             <div class="container">
                 <h2>문의하기</h2>
+                <p class="lead">궁금한 점이 있으신가요? 언제든지 편하게 문의해 주세요.</p>
+                <div class="contact-info">
+                    <p>전화: <a href="tel:02-123-4567">02-123-4567</a></p>
+                    <p>이메일: <a href="mailto:contact@fitstep.com">contact@fitstep.com</a></p>
+                    <p>주소: 서울특별시 강남구 테헤란로 123</p>
                 </div>
+            </div>
         </section>
     </main>
 
