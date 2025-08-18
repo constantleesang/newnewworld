@@ -227,28 +227,30 @@
             padding: 2rem 0;
         }
 
+        /* 공통 이미지 스타일 (반응형) */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* 회사소개 이미지 스타일 */
+        .about-image {
+            max-width: 100%;
+            margin-top: 2rem;
+        }
+
         /* 품질관리 이미지 스타일 */
         .quality-image {
             max-width: 100%;
-            height: auto;
             margin-top: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         /* 제품소개 이미지 스타일 */
         .product-image {
             max-width: 100%;
-            height: auto;
             margin-top: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        /* 모든 이미지가 화면 크기에 맞춰 조절되도록 설정 */
-        img {
-            max-width: 100%;
-            height: auto;
         }
 
         @media (max-width: 768px) {
@@ -290,6 +292,7 @@
             <div class="container">
                 <h2>회사소개</h2>
                 <p class="lead">Excelix는 최첨단 3D 스캐닝 기술과 족부 전문가의 노하우를 결합하여, 고객 한 분 한 분에게 최적화된 인솔을 제작합니다. 더 나은 보행 경험을 선사하는 것이 우리의 목표입니다.</p>
+                <img src="pack_1.png" alt="Excelix 사무실 및 연구실" class="about-image">
             </div>
         </section>
 
