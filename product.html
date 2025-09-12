@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제품 상세 - Excelix 맞춤형 인솔</title>
+    <title>Excelix - 맞춤형 인솔</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
         
@@ -13,6 +13,17 @@
             --dark-color: #212529;
             --light-color: #ffffff;
             --font-family: 'Noto Sans KR', sans-serif;
+            --color-1: #f8f9fa;
+            --color-2: #e9ecef;
+            --color-3: #dee2e6;
+            --color-4: #ced4da;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -20,90 +31,209 @@
             background-color: var(--secondary-color);
             color: var(--dark-color);
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
         }
 
         .container {
-            max-width: 960px;
+            max-width: 1200px;
             margin: auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
         header {
             background: var(--light-color);
             padding: 1rem 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        
-        header .logo {
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-color);
             text-decoration: none;
         }
 
-        .product-details {
-            padding: 4rem 0;
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            align-items: center;
+        nav a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 400;
+            margin-left: 20px;
+            transition: color 0.3s ease;
         }
 
-        .product-image {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .product-info {
-            text-align: center;
-        }
-
-        .product-info h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+        nav a:hover {
             color: var(--primary-color);
         }
 
-        .product-info p {
+        /* 섹션 공통 스타일 */
+        section {
+            padding: 6rem 0;
+            text-align: center;
+        }
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        section p.lead {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+
+        /* 제품 상세 섹션 */
+        .product-info-section {
+            background-color: var(--color-1);
+        }
+
+        .product-intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            text-align: left;
+            margin-top: 3rem;
+        }
+        .product-intro-grid img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .product-intro-grid h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .product-intro-grid p {
             font-size: 1.1rem;
             line-height: 1.8;
             margin-bottom: 2rem;
         }
-
-        .back-button {
-            display: inline-block;
-            background-color: var(--dark-color);
-            color: var(--light-color);
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: background-color 0.3s ease;
+        
+        .feature-list ul {
+            list-style: none;
+            padding: 0;
         }
 
-        .back-button:hover {
-            background-color: #495057;
+        .feature-list li {
+            background-color: var(--light-color);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-weight: 400;
+            text-align: left;
+        }
+
+        .feature-list li::before {
+            content: '✅';
+            margin-right: 10px;
+        }
+
+        /* 제품 제작 과정 섹션 */
+        .process-section {
+            background-color: var(--color-2);
+        }
+        .process-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 3rem;
+        }
+        .process-card {
+            width: 250px;
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .process-card h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .process-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .process-card p {
+            font-weight: 300;
         }
         
-        @media (min-width: 768px) {
-            .product-details {
-                flex-direction: row;
-                text-align: left;
-                align-items: flex-start;
+        /* 제품 성능 검증 섹션 */
+        .performance-section {
+            background-color: var(--color-3);
+        }
+        .performance-section img {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .performance-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .performance-text h3 {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* 클라우드 제조 시스템 섹션 */
+        .cloud-section {
+            background-color: var(--color-4);
+        }
+        .cloud-section img {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .cloud-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .cloud-text h3 {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+
+        footer {
+            background: var(--dark-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .product-intro-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
-            .product-image {
-                flex: 1;
+            .product-intro-grid img {
+                order: -1;
             }
-            .product-info {
-                flex: 1;
-                text-align: left;
-                padding-left: 40px;
+            nav a {
+                margin-left: 10px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -113,37 +243,136 @@
     <header>
         <div class="container">
             <a href="index.html" class="logo">Excelix</a>
+            <nav>
+                <a href="#product">제품소개</a>
+                <a href="#process">제품제작과정</a>
+                <a href="#performance">제품성능검증</a>
+                <a href="#cloud">클라우드 제조시스템</a>
+            </nav>
         </div>
     </header>
 
     <main>
-        <section class="product-details">
+        <section id="product" class="product-info-section">
             <div class="container">
-                <img src="product_intro.png" alt="Excelix 맞춤형 인솔" class="product-image">
-                <div class="product-info">
-                    <h1>Excelix 맞춤형 인솔</h1>
-                    <p>
-                        Excelix 맞춤형 인솔은 당신의 발에 완벽하게 맞춰진 최상의 편안함을 선사합니다.
-                        최첨단 3D 스캐닝 기술로 발의 형태, 압력 분포, 걸음걸이 습관을 정밀하게 분석하여 제작됩니다.
-                    </p>
-                    <p>
-                        평발, 요족, 무지외반증 등 다양한 발 고민을 가진 분들께 효과적인 솔루션을 제공합니다.
-                        고밀도 EVA 소재를 사용하여 충격 흡수와 내구성이 뛰어나며, 통기성이 좋아 하루 종일 쾌적합니다.
-                    </p>
-                    <p>
-                        **주요 특징:**
-                    </p>
-                    <ul>
-                        <li>✔︎ 3D 스캐닝 기반의 정밀 맞춤 제작</li>
-                        <li>✔︎ 족부 전문가의 1:1 맞춤 설계</li>
-                        <li>✔︎ 뛰어난 충격 흡수와 안정성</li>
-                        <li>✔︎ 통기성이 좋은 프리미엄 소재</li>
-                    </ul>
-                    <a href="index.html#customize" class="back-button">맞춤제작 방법 보러가기</a>
+                <h2>Excelix 맞춤형 인솔</h2>
+                <p class="lead">
+                    당신의 발에 완벽하게 맞춰진 최상의 편안함을 선사합니다.
+                    최첨단 기술과 전문가의 노하우가 결합된 인솔을 만나보세요.
+                </p>
+                <div class="product-intro-grid">
+                    <div>
+                        <h3>발에 완벽하게 맞는 편안함</h3>
+                        <p>
+                            Excelix 맞춤형 인솔은 단순한 기성품이 아닌, 당신의 발 데이터로 만들어지는 유일무이한 제품입니다.
+                            개인의 발 모양, 아치 높이, 걸음걸이 습관까지 정밀하게 분석하여 신체 균형을 최적화합니다.
+                        </p>
+                        <p>
+                            일상생활은 물론, 스포츠 활동에서도 탁월한 성능을 발휘하여 발의 피로를 줄이고 부상을 예방합니다.
+                            최고급 소재로 제작되어 뛰어난 내구성과 통기성을 자랑합니다.
+                        </p>
+                        <div class="feature-list">
+                            <ul>
+                                <li>3D 스캐닝 기반의 정밀 맞춤 설계</li>
+                                <li>족부 전문가의 1:1 컨설팅</li>
+                                <li>통기성 및 충격 흡수 강화</li>
+                                <li>자세 교정 및 발 피로 감소</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img src="product_intro.png" alt="Excelix 맞춤형 인솔 이미지">
                 </div>
             </div>
         </section>
+
+        ---
+
+        <section id="process" class="process-section">
+            <div class="container">
+                <h2>제품 제작 과정</h2>
+                <p class="lead">
+                    세 단계의 간단한 과정으로 당신에게 꼭 맞는 인솔을 제작합니다.
+                </p>
+                <div class="process-grid">
+                    <div class="process-card">
+                        <h3>STEP 1</h3>
+                        <h4>정밀 측정</h4>
+                        <p>
+                            3D 발 스캐너로 발의 전체 형태와 압력 분포를 정확하게 측정합니다. 
+                            단 몇 분 만에 당신의 발 데이터를 완벽하게 확보합니다.
+                        </p>
+                    </div>
+                    <div class="process-card">
+                        <h3>STEP 2</h3>
+                        <h4>개인 맞춤 설계</h4>
+                        <p>
+                            전문가가 측정 데이터를 분석하여 개인의 보행 습관, 활동량에 맞는 최적의 인솔 디자인을 설계합니다.
+                            발의 피로도를 줄이고 자세를 교정하는 데 중점을 둡니다.
+                        </p>
+                    </div>
+                    <div class="process-card">
+                        <h3>STEP 3</h3>
+                        <h4>3D 프린팅 제작</h4>
+                        <p>
+                            설계된 디자인을 기반으로 첨단 3D 프린팅 기술을 사용하여 인솔을 정밀하게 제작합니다.
+                            완성된 인솔은 꼼꼼한 품질 검수를 거쳐 안전하게 배송됩니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="performance" class="performance-section">
+            <div class="container">
+                <h2>제품 성능 검증</h2>
+                <p class="lead">
+                    과학적인 테스트와 임상 연구를 통해 Excelix 인솔의 우수한 성능을 입증했습니다.
+                </p>
+                <div class="performance-text">
+                    <p>
+                        Excelix 인솔은 족부의 압력 분포를 균등하게 분산시켜 특정 부위에 집중되는 하중을 효과적으로 줄여줍니다.
+                        이를 통해 발의 피로를 감소시키고, 장시간 보행 및 운동 시에도 편안함을 유지할 수 있습니다.
+                    </p>
+                    <p>
+                        또한, 발목과 무릎 관절에 가해지는 충격을 흡수하여 부상 위험을 줄이는 데 도움을 줍니다.
+                        다양한 임상 실험 결과, 보행 안정성 및 자세 교정 효과가 확인되었습니다.
+                    </p>
+                </div>
+                <img src="quality_control.png" alt="제품 성능 검증 이미지">
+            </div>
+        </section>
+
+        ---
+        
+        <section id="cloud" class="cloud-section">
+            <div class="container">
+                <h2>클라우드 제조 시스템</h2>
+                <p class="lead">
+                    Excelix는 혁신적인 클라우드 기반 제조 시스템으로 빠르고 정확한 맞춤 제작을 실현합니다.
+                </p>
+                <div class="cloud-text">
+                    <p>
+                        고객의 발 스캔 데이터는 클라우드 서버에 안전하게 저장 및 관리됩니다.
+                        이 데이터는 즉시 제조 시스템으로 전송되어, 설계부터 생산까지의 모든 과정이 신속하고 효율적으로 이루어집니다.
+                    </p>
+                    <p>
+                        클라우드 시스템을 통해 전 세계 어디서든 데이터에 접근하여 주문, 생산, 배송을 통합 관리할 수 있으며,
+                        이는 고객에게 최단 시간 내에 최상의 맞춤형 인솔을 제공하는 원동력이 됩니다.
+                    </p>
+                </div>
+                <img src="cloud_system.png" alt="클라우드 제조 시스템 이미지">
+            </div>
+        </section>
+
     </main>
 
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Excelix. All rights reserved.</p>
+        </div>
+    </footer>
+    
 </body>
 </html>
