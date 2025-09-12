@@ -281,6 +281,37 @@
     font-weight: 300;
 }
         
+/* "탑으로" 버튼 스타일 */
+#scrollToTopBtn {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed; /* 고정 위치 */
+    bottom: 20px; /* 화면 하단에서 20px 위 */
+    right: 20px; /* 화면 오른쪽에서 20px 안쪽 */
+    z-index: 99;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%;
+    transition: background-color 0.3s, opacity 0.3s;
+    opacity: 0.7;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #0056b3;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    #scrollToTopBtn {
+        font-size: 20px;
+        padding: 8px 12px;
+    }
+}
+        
     </style>
 </head>
 <body>
@@ -424,9 +455,36 @@
     </footer>
     
     <button id="scrollToTopBtn" title="Top">▲</button>
+
+    <script>
+        // "탑으로" 버튼 요소 가져오기
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        // 스크롤 이벤트 리스너 추가
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                // 스크롤 위치가 200px 이상일 때 버튼 보이기
+                scrollToTopBtn.style.display = "block";
+            } else {
+                // 스크롤 위치가 200px 미만일 때 버튼 숨기기
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+        // 버튼 클릭 시 페이지 상단으로 부드럽게 스크롤
+        scrollToTopBtn.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        };
+    </script>
     
 </body>
 </html>
+</body>
+</html>
+
 
 
 
