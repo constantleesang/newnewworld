@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제품 상세 - Excelix 맞춤형 인솔</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+        
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #f8f9fa;
+            --dark-color: #212529;
+            --light-color: #ffffff;
+            --font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        header {
+            background: var(--light-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .product-details {
+            padding: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-info {
+            text-align: center;
+        }
+
+        .product-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .product-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #495057;
+        }
+        
+        @media (min-width: 768px) {
+            .product-details {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+            .product-image {
+                flex: 1;
+            }
+            .product-info {
+                flex: 1;
+                text-align: left;
+                padding-left: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Excelix</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-details">
+            <div class="container">
+                <img src="product_intro.png" alt="Excelix 맞춤형 인솔" class="product-image">
+                <div class="product-info">
+                    <h1>Excelix 맞춤형 인솔</h1>
+                    <p>
+                        Excelix 맞춤형 인솔은 당신의 발에 완벽하게 맞춰진 최상의 편안함을 선사합니다.
+                        최첨단 3D 스캐닝 기술로 발의 형태, 압력 분포, 걸음걸이 습관을 정밀하게 분석하여 제작됩니다.
+                    </p>
+                    <p>
+                        평발, 요족, 무지외반증 등 다양한 발 고민을 가진 분들께 효과적인 솔루션을 제공합니다.
+                        고밀도 EVA 소재를 사용하여 충격 흡수와 내구성이 뛰어나며, 통기성이 좋아 하루 종일 쾌적합니다.
+                    </p>
+                    <p>
+                        **주요 특징:**
+                    </p>
+                    <ul>
+                        <li>✔︎ 3D 스캐닝 기반의 정밀 맞춤 제작</li>
+                        <li>✔︎ 족부 전문가의 1:1 맞춤 설계</li>
+                        <li>✔︎ 뛰어난 충격 흡수와 안정성</li>
+                        <li>✔︎ 통기성이 좋은 프리미엄 소재</li>
+                    </ul>
+                    <a href="index.html#customize" class="back-button">맞춤제작 방법 보러가기</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
